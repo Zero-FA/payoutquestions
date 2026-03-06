@@ -1,0 +1,110 @@
+WealthCharts Commissions & Instruments
+Commissions for WealthCharts 
+Welcome to the current commission schedule for both Evaluation and Paid/Funded Accounts. Our goal is to provide you with the lowest possible commissions to enhance your trading experience.
+
+How Commissions Are Deducted
+As you execute trades, commissions are automatically deducted from your account balance. 
+
+Please review the image below that shows the WealthCharts Trades Panel and how commissions are deducted.
+
+Example: A trade is placed using 1 contract on NQ. The per side commission is $1.55. The trade is opened with 1 contract and closed with a second contract to flatten the position. Hence, 2 contracts multiplied by $1.55 commission = $3.10.
+ 
+
+On the WealthCharts Trades panel within the Broker Portfolio, the trade net P&L of $1.90 is shown in blue. The commissions for the trade have already been deducted. The gross P&L for a 0.25 point NQ trade is $5, then deducting $3.10 in commissions, this equates to a net P&L of $1.90.
+
+
+ 
+
+Commissions
+Name	Symbol	Exchange	Per Side	Round Turn
+Equity Futures
+E-Mini Dow ($5)	YM	CBOT	1.55	3.1
+E-Mini S&P 500	ES	CME	1.55	3.1
+E-Mini NASDAQ	NQ	CME	1.55	3.1
+E-Mini Russell	RTY	CME	1.55	3.1
+E-Mini S&P Midcap 400	EMD	CME	1.5	3
+Nikkei 225 (USD)	NKD	CME	2.32	4.64
+ 
+Currency Futures
+Australian Dollar	6A	CME	1.77	3.54
+British Pound	6B	CME	1.77	3.54
+Canadian Dollar	6C	CME	1.77	3.54
+Swiss Franc	6S	CME	1.77	3.54
+Euro FX	6E	CME	1.77	3.54
+New Zealand Dollar	6N	CME	1.77	3.54
+ 
+Agricultural Futures
+Lean Hogs	HE	CME	2.27	4.54
+Live Cattle	LE	CME	2.27	4.54
+Feeder Cattle	GF	CME	2.27	4.54
+Soybeans	ZS	CBOT	2.27	4.54
+Soybean Oil	ZL	CBOT	2.27	4.54
+Corn	ZC	CBOT	2.27	4.54
+Wheat	ZW	CBOT	2.27	4.54
+Soybean Meal	ZM	CBOT	2.27	4.54
+ 
+Energy Futures
+RBOB Gasoline	RB	NYMEX	1.67	3.34
+Crude Oil	CL	NYMEX	1.67	3.34
+Natural Gas	NG	NYMEX	1.77	3.54
+E-Mini Crude Oil	QM	NYMEX	1.37	2.74
+E-Mini Natural Gas	QG	NYMEX	0.67	1.34
+Heating Oil	HO	NYMEX	1.67	3.34
+ 
+Micro Futures
+Micro E-Mini Dow	MYM	CBOT	0.52	1.04
+Micro E-Mini S&P 500	MES	CME	0.52	1.04
+Micro E-Mini NASDAQ	MNQ	CME	0.52	1.04
+Micro E-Mini Russell	M2K	CME	0.52	1.04
+Micro Crude Oil	MCL	NYMEX	0.67	1.34
+E-Micro Australian Dollar	M6A	CME	0.41	0.82
+E-Micro Euro	M6E	CME	0.41	0.82
+Cryptocurrency	 	 	 	 
+Micro Bitcoin Futures	MBT	CME	2.67	5.34
+Micro Ethereum Futures	MET	CME	0.37	0.74
+What instruments can be traded on WealthCharts?
+Note: You must trade the front-month contract on WealthCharts (e.g., NQZ5); the continuous contract (e.g., NQ1) will result in rejected orders.
+
+Name	Symbol	Exchange
+Equity Futures	 	 
+E-mini S&P 500 (ES)	ES	CME
+Nikkei NKD (NKD)	NKD	CME
+E-mini NASDAQ 100 (NQ)	NQ	CME
+Mini-DOW (YM)	YM	CBOT
+E-mini Midcap 400 (EMD)	EMD	CME
+Russell 2000 (RTY)	RTY	CME
+Currency Futures	 	 
+Australian Dollar (6A)	6A	CME
+British Pound (6B)	6B	CME
+Canadian Dollar (6C)	6C	CME
+Euro FX (6E)	6E	CME
+Swiss Franc (6S)	6S	CME
+New Zealand Dollar (6N)	6N	CME
+Agricultural Futures	 	 
+Lean Hogs (HE)	HE	CME
+Live Cattle (LE)	LE	CME
+Feeder Cattle (GF)	GF	CME
+Corn (ZC)	ZC	CBOT
+Wheat (ZW)	ZW	CBOT
+Soybeans (ZS)	ZS	CBOT
+Soybean Meal (ZM)	ZM	CBOT
+Soybean Oil (ZL)	ZL	CBOT
+Energy Futures	 	 
+Crude Oil (CL)	CL	NYMEX
+Mini Crude Oil (QM)	QM	NYMEX
+Natural Gas (NG)	NG	NYMEX
+E-mini Natural Gas (QG)	QG	NYMEX
+Heating Oil (HO)	HO	NYMEX
+New York Harbor (RB)	RB	NYMEX
+Micro Futures	 	 
+Micro E-Mini S&P 500 (MES)	MES	CME
+Micro E-Mini Dow Jones (MYM)	MYM	CME
+Micro E-Mini Nasdaq-100 (MNQ)	MNQ	CME
+Micro E-Mini Russell 2000 (M2K)	M2K	CME
+E-Micro AUD/USD (M6A)	M6A	CME
+E-Micro EUR/USD (M6E)	M6E	CME
+Micro Crude Oil (MCL)	MCL	NYMEX
+Cryptocurrencies	 	 
+Micro Bitcoin (Note: Do not trade mini BT as it is not supported)	MBT	CME
+Micro Ether (Note: Do not trade mini ET as it is not supported)	MET	CME
+Note: Micro Crypto products operate as Mini products when considering your maximum contract allowance. E.g., if you are limited to 100 Micros and 10 Minis, you can only trade 10 contracts on MBT or MET.
