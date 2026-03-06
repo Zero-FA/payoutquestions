@@ -1,5 +1,3 @@
-const fs = require("fs");
-const path = require("path");
 const OpenAIImport = require("openai");
 
 const OpenAI = OpenAIImport.default || OpenAIImport;
@@ -143,21 +141,6 @@ const FAQ_LINKS = {
   }
 };
 
-function getAllFiles(dirPath, arrayOfFiles = []) {
-  const files = fs.readdirSync(dirPath);
-
-  files.forEach((file) => {
-    const fullPath = path.join(dirPath, file);
-    if (fs.statSync(fullPath).isDirectory()) {
-      getAllFiles(fullPath, arrayOfFiles);
-    } else if (file.endsWith(".txt")) {
-      arrayOfFiles.push(fullPath);
-    }
-  });
-
-  return arrayOfFiles;
-}
-
 function normalizeQuestion(input) {
   let q = ` ${input || ""} `;
 
@@ -192,7 +175,18 @@ function normalizeQuestion(input) {
     [/\bttd\b/gi, " trailing drawdown "],
     [/\bdd\b/gi, " drawdown "],
     [/\bunder review\b/gi, " under review payout status "],
-    [/\bpaid\b/gi, " paid payout status "]
+    [/\bpaid\b/gi, " paid payout status "],
+    [/\bmaen\b/gi, " mean "],
+    [/\bpayouts\b/gi, " payout requests payouts "],
+    [/\bpay out\b/gi, " payout "],
+    [/\bhow many\b/gi, " number of amount of total allowed "],
+    [/\bcan i request\b/gi, " request allowed eligible "],
+    [/\brequests\b/gi, " requests request "],
+    [/\bqeustion\b/gi, " question "],
+    [/\bdo ont\b/gi, " do not "],
+    [/\bcahnge\b/gi, " change "],
+    [/\birt\b/gi, " it "],
+    [/\bplesae\b/gi, " please "]
   ];
 
   for (const [pattern, replacement] of replacements) {
@@ -202,78 +196,151 @@ function normalizeQuestion(input) {
   return q.replace(/\s+/g, " ").trim();
 }
 
-function tokenize(text) {
-  return String(text || "")
-    .toLowerCase()
-    .replace(/[^a-z0-9&\-\s]/g, " ")
-    .split(/\s+/)
-    .filter(Boolean);
+function uniqueStrings(items) {
+  return [...new Set(items.map((x) => String(x || "").trim()).filter(Boolean))];
 }
 
-function scoreFile(question, normalizedQuestion, fileName, content) {
-  const haystack = `${fileName}\n${content}\n${normalizedQuestion}`.toLowerCase();
-  const originalTokens = tokenize(question);
-  const normalizedTokens = tokenize(normalizedQuestion);
-  const allTokens = [...new Set([...originalTokens, ...normalizedTokens])];
+function buildQueryVariants(rawQuestion, normalizedQuestion) {
+  const variants = [rawQuestion, normalizedQuestion];
+  const lower = normalizedQuestion.toLowerCase();
 
-  let score = 0;
+  if (lower.includes("payout")) {
+    variants.push(
+      `${normalizedQuestion} payout requests`,
+      `${normalizedQuestion} how many payout requests allowed`,
+      `${normalizedQuestion} maximum number of payout requests`,
+      `payout request limit ${normalizedQuestion}`,
+      `how many payouts can i request`
+    );
+  }
 
-  for (const token of allTokens) {
-    if (token.length < 2) continue;
-    if (haystack.includes(token)) {
-      score += token.length >= 8 ? 5 : token.length >= 5 ? 3 : 1;
+  if (lower.includes("under review")) {
+    variants.push(
+      `${normalizedQuestion} meaning`,
+      `what does under review mean`,
+      `under review payout status meaning`
+    );
+  }
+
+  if (lower.includes("tradovate")) {
+    variants.push(`tradovate ${normalizedQuestion}`);
+  }
+
+  if (lower.includes("rithmic")) {
+    variants.push(`rithmic ${normalizedQuestion}`);
+  }
+
+  if (lower.includes("wealthcharts")) {
+    variants.push(`wealthcharts ${normalizedQuestion}`);
+  }
+
+  return uniqueStrings(variants).slice(0, 8);
+}
+
+async function searchVectorStore({ vectorStoreId, apiKey, queries, maxResults = 8 }) {
+  const allResults = [];
+
+  for (const query of queries) {
+    const response = await fetch(`https://api.openai.com/v1/vector_stores/${vectorStoreId}/search`, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        query,
+        max_num_results: maxResults,
+        rewrite_query: true,
+        ranking_options: {
+          ranker: "auto",
+          score_threshold: 0.45
+        }
+      })
+    });
+
+    const json = await response.json();
+
+    if (!response.ok) {
+      throw new Error(json && json.error && json.error.message ? json.error.message : "Vector store search failed");
+    }
+
+    const results = Array.isArray(json.data) ? json.data : [];
+    for (const item of results) {
+      allResults.push({
+        ...item,
+        search_query: query
+      });
     }
   }
 
-  if (normalizedQuestion.toLowerCase().includes("tradovate") && /tradovate/i.test(fileName)) score += 20;
-  if (normalizedQuestion.toLowerCase().includes("rithmic") && /rithmic/i.test(fileName)) score += 20;
-  if (normalizedQuestion.toLowerCase().includes("wealthcharts") && /wealthcharts/i.test(fileName)) score += 20;
-  if (normalizedQuestion.toLowerCase().includes("payout") && /payout|request|performance|activation/i.test(fileName)) score += 10;
-  if (normalizedQuestion.toLowerCase().includes("drawdown") && /drawdown/i.test(fileName)) score += 12;
-  if (normalizedQuestion.toLowerCase().includes("commission") && /commission|instruments/i.test(fileName)) score += 15;
-  if (normalizedQuestion.toLowerCase().includes("billing") && /payment|coupon|refund/i.test(fileName)) score += 12;
-  if (normalizedQuestion.toLowerCase().includes("country") && /country/i.test(fileName)) score += 12;
-  if (normalizedQuestion.toLowerCase().includes("register") && /register/i.test(fileName)) score += 12;
-  if (normalizedQuestion.toLowerCase().includes("2 factor") || normalizedQuestion.toLowerCase().includes("two-factor")) {
-    if (/2fa/i.test(fileName)) score += 20;
+  const deduped = new Map();
+
+  for (const item of allResults) {
+    const contentText = Array.isArray(item.content)
+      ? item.content.map((c) => c && c.text ? c.text : "").join("\n").trim()
+      : "";
+
+    const key = `${item.filename || ""}::${contentText}`;
+    const existing = deduped.get(key);
+
+    if (!existing || (item.score || 0) > (existing.score || 0)) {
+      deduped.set(key, {
+        filename: item.filename || "",
+        file_id: item.file_id || "",
+        score: typeof item.score === "number" ? item.score : 0,
+        contentText,
+        search_query: item.search_query || ""
+      });
+    }
   }
 
-  return score;
+  return [...deduped.values()]
+    .filter((x) => x.contentText)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 8);
 }
 
-function loadRankedFaqs(question, normalizedQuestion, maxFiles = 4) {
-  const faqDir = path.join(process.cwd(), "faqs");
+function buildFaqContext(results) {
+  return results
+    .map((item, index) => {
+      return [
+        `### RESULT ${index + 1}`,
+        `Filename: ${item.filename}`,
+        `Score: ${item.score}`,
+        `MatchedQuery: ${item.search_query}`,
+        `Chunk:`,
+        item.contentText
+      ].join("\n");
+    })
+    .join("\n\n");
+}
 
-  if (!fs.existsSync(faqDir)) {
-    throw new Error(`FAQ folder missing: ${faqDir}`);
+function pickBestSource(results, cleanedAnswer) {
+  if (!results.length) return null;
+  if (!cleanedAnswer || isNoAnswer(cleanedAnswer)) return null;
+
+  const answerLower = cleanedAnswer.toLowerCase();
+
+  for (const result of results) {
+    const chunkLower = result.contentText.toLowerCase();
+    if (chunkLower.includes(answerLower.slice(0, Math.min(answerLower.length, 80)))) {
+      return result;
+    }
   }
 
-  const filePaths = getAllFiles(faqDir);
+  return results[0];
+}
 
-  if (!filePaths.length) {
-    throw new Error("No FAQ .txt files found");
-  }
-
-  const ranked = filePaths.map((filePath) => {
-    const fileName = path.basename(filePath);
-    const content = fs.readFileSync(filePath, "utf8");
-    const score = scoreFile(question, normalizedQuestion, fileName, content);
-    return { filePath, fileName, content, score };
-  });
-
-  ranked.sort((a, b) => b.score - a.score);
-
-  const selected = ranked.slice(0, maxFiles);
-  let faqText = "";
-
-  for (const item of selected) {
-    faqText += `\n\n### FILE: ${item.fileName}\n${item.content}\n`;
-  }
-
-  return {
-    faqText,
-    selectedFiles: selected.map((x) => x.fileName)
-  };
+function isNoAnswer(text) {
+  const value = String(text || "").toLowerCase();
+  return (
+    !value ||
+    value.includes("i can't answer that from the provided apex faqs") ||
+    value.includes("i cannot answer that from the provided apex faqs") ||
+    value.includes("not found in the faq") ||
+    value.includes("not in the faq") ||
+    value.includes("not clearly supported")
+  );
 }
 
 module.exports = async function handler(req, res) {
@@ -289,8 +356,12 @@ module.exports = async function handler(req, res) {
       throw new Error("Missing OPENAI_API_KEY environment variable");
     }
 
+    if (!process.env.OPENAI_VECTOR_STORE_ID) {
+      throw new Error("Missing OPENAI_VECTOR_STORE_ID environment variable");
+    }
+
     const body = req.body || {};
-    const rawQuestion = (body.question || "").trim();
+    const rawQuestion = String(body.question || "").trim();
 
     if (!rawQuestion) {
       return res.status(400).json({
@@ -300,7 +371,31 @@ module.exports = async function handler(req, res) {
     }
 
     const normalizedQuestion = normalizeQuestion(rawQuestion);
-    const { faqText, selectedFiles } = loadRankedFaqs(rawQuestion, normalizedQuestion, 4);
+    const queryVariants = buildQueryVariants(rawQuestion, normalizedQuestion);
+
+    const searchResults = await searchVectorStore({
+      vectorStoreId: process.env.OPENAI_VECTOR_STORE_ID,
+      apiKey: process.env.OPENAI_API_KEY,
+      queries: queryVariants,
+      maxResults: 8
+    });
+
+    const highConfidenceResults = searchResults.filter((x) => x.score >= 0.5);
+    const chosenResults = highConfidenceResults.length ? highConfidenceResults.slice(0, 6) : searchResults.slice(0, 6);
+    const faqContext = buildFaqContext(chosenResults);
+
+    if (!faqContext.trim()) {
+      return res.status(200).json({
+        ok: true,
+        answer: "I can't answer that from the provided Apex FAQs.",
+        sourceFile: "",
+        sourceTitle: "",
+        sourceUrl: "",
+        normalizedQuestion,
+        selectedFiles: [],
+        queryVariants
+      });
+    }
 
     const client = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY
@@ -308,6 +403,7 @@ module.exports = async function handler(req, res) {
 
     const response = await client.responses.create({
       model: "gpt-5",
+      reasoning: { effort: "medium" },
       input: [
         {
           role: "system",
@@ -317,16 +413,14 @@ module.exports = async function handler(req, res) {
               text: `You are an Apex Trader Funding FAQ assistant.
 
 Rules:
-1. Answer ONLY using the FAQ documentation provided.
+1. Answer ONLY using the retrieved FAQ chunks provided.
 2. Do NOT use outside knowledge.
-3. Do NOT guess or make unsupported claims.
-4. Treat common abbreviations and shorthand as their full terms when the normalized question makes them clear.
-5. If the answer is not clearly supported by the FAQ docs, say exactly:
+3. Do NOT guess.
+4. If the answer is not clearly supported by the retrieved FAQ chunks, say exactly:
 I can't answer that from the provided Apex FAQs.
-6. Keep the answer direct and natural.
-7. After the answer, add one final line exactly like this:
-SourceFile: <filename>
-8. Use only one source file, the single best matching file from the provided docs.`
+5. Keep the answer short, direct, and natural.
+6. Do NOT mention filenames, chunk scores, vector stores, retrieval, or internal process.
+7. Do NOT add a source line, label, or citation in the answer.`
             }
           ]
         },
@@ -335,43 +429,39 @@ SourceFile: <filename>
           content: [
             {
               type: "input_text",
-              text: `SELECTED FAQ FILES:
-${selectedFiles.join(", ")}
-
-FAQ DOCUMENTATION:
-${faqText}
-
-ORIGINAL USER QUESTION:
+              text: `ORIGINAL USER QUESTION:
 ${rawQuestion}
 
 NORMALIZED QUESTION:
 ${normalizedQuestion}
 
-Answer using only the FAQ documentation above.`
+QUERY VARIANTS USED:
+${queryVariants.join("\n")}
+
+RETRIEVED FAQ CHUNKS:
+${faqContext}
+
+Answer using only the retrieved FAQ chunks above.`
             }
           ]
         }
       ]
     });
 
-    const rawAnswer =
-      (response.output_text && response.output_text.trim()) ||
-      "I can't answer that from the provided Apex FAQs.";
-
-    const sourceMatch = rawAnswer.match(/SourceFile:\s*(.+)$/im);
-    const sourceFile = sourceMatch ? sourceMatch[1].trim() : "";
-    const cleanedAnswer = rawAnswer.replace(/SourceFile:\s*.+$/im, "").trim();
-
-    const sourceInfo = FAQ_LINKS[sourceFile] || null;
+    const cleanedAnswer = ((response.output_text && response.output_text.trim()) || "I can't answer that from the provided Apex FAQs.").trim();
+    const bestSource = pickBestSource(chosenResults, cleanedAnswer);
+    const sourceFile = bestSource && !isNoAnswer(cleanedAnswer) ? bestSource.filename : "";
+    const sourceInfo = sourceFile ? (FAQ_LINKS[sourceFile] || null) : null;
 
     return res.status(200).json({
       ok: true,
       answer: cleanedAnswer,
       sourceFile,
-      sourceTitle: sourceInfo ? sourceInfo.title : sourceFile || "",
+      sourceTitle: sourceInfo ? sourceInfo.title : "",
       sourceUrl: sourceInfo ? sourceInfo.url : "",
       normalizedQuestion,
-      selectedFiles
+      selectedFiles: uniqueStrings(chosenResults.map((x) => x.filename)),
+      queryVariants
     });
   } catch (error) {
     console.error("ASK API ERROR:", error);
