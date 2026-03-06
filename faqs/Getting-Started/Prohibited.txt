@@ -1,28 +1,184 @@
 Prohibited Activities
-To maintain integrity and ensure funding is provided only to disciplined and consistent traders, Apex Trader Funding strictly prohibits the following activities:
 
-You may not provide your access criteria to any of your Accounts to anyone, and you may not share Accounts with anyone.
-You may only use a bank account, debit card, or credit card that is in your own name to pay fees. Likewise, you may only request that are Rewards distributed to a bank account held in your own name.
-You may not initiate a chargeback, dispute, or any other refund request in bad faith.
-You may not submit any false or misleading information or documents, including but not limited to those related to your identity, residency, financial status, or other personal or account-related details.
-You may not use VPNs, proxy servers, cloud servers, anonymizing tools, or other methods or tools for the purpose of misrepresenting, concealing, or disguising your identity, device, or location in an attempt: (a) to evade or circumvent any rules, security measures, access controls, or geographic restrictions; (b) to hide prior violations or detection of violations of this Agreement, the Trading Rules, or Company policies; or (c) to engage in or facilitate any illegal, fraudulent, deceptive, or abusive conduct.
-You may not manipulate Company systems, documents, trade logs, communications, or impersonate Company staff.
-You may not use the Company Services abusively or in a way that tries to exploit, “game,” or undermine the purpose or spirit of the Program for personal benefit.
-Trading Without Stop Losses or Risk Management: All trades must have either pending or mental stop losses and a well-defined risk management strategy. Trading without these measures is strictly prohibited.
-High-Risk Strategies: Strategies that involve small profit targets while risking disproportionately large amounts are not allowed. For example, setting a five-tick profit target with a 150-tick stop loss demonstrates unacceptable risk management.
-Using the Trailing Threshold as a Stop Loss: Traders are prohibited from using the account's full threshold as a stop-loss mechanism to absorb large losses, leading to account liquidation.
-Stockpiling Evaluation Accounts: Purchasing multiple discounted evaluation accounts to cycle through and intentionally "blow up" accounts in pursuit of windfall profits is not permitted.
-Unsustainable Strategies: Any trading, risk management, or implementation that fails to demonstrate consistent growth and sustainability is prohibited. This includes schemes or behaviors that do not align with responsible trading practices.
-Deviating from Professional Standards: Traders must employ strategies and risk management techniques consistent with those they would use in a personally funded account at a registered broker. Apex does not fund traders who deviate from this standard.
-Manipulation of the simulated trading environment: Apex Trader Funding strictly prohibits manipulation or exploitation of the simulation environment in any way, including High Frequency Trading (HFT) or any other exploitative strategies. This includes trying to manipulate the system for erroneous fills or breaching the maximum allowed contracts per an account plan. Please also be aware that this includes non-directional bracket trading, where orders are left open on both sides of the market, trying to catch a lucky windfall.
-Unauthorized Users: Allowing any individual other than the registered owner to access or perform account verification is strictly prohibited. Apex reserves the right to request additional information — including audits and verification procedures — from the account owner to ensure that only the authorized user is trading or accessing the account and to enforce compliance with the contract.
-Account and Resource Sharing: Sharing MAC addresses, computers, IPs, credit cards, or trade copying with other traders is strictly forbidden. Violations will result in account closure, forfeiture of funds, and potential additional verification or audits to ensure compliance.
-Multiple Account Creation: Creating multiple user accounts is prohibited and is a bannable offense. You also may not create additional accounts in the household or associated parties if an existing user account has special provisions, such as an evaluation restriction or trader probation, as this would be viewed as an attempt to circumvent account provisions on an existing account. This includes both business and personal user type accounts.
-Holding open trade positions through the market close. Traders are responsible for ensuring that all open trade positions are closed prior to the market close. Traders engaging in these prohibited activities will forfeit their accounts and all associated balances. Apex reserves the right to audit accounts further if there is a suspicion of non-compliance to guarantee adherence to the trader agreement.
-No Automation or Algorithm Usage allowed: Rewards are intended to recognize human traders actively participating in the learning process, not to reward automated systems executing preprogrammed logic. Please see the user agreement for more details, and we encourage you to reach out if you have further questions. 
-NEWS TRADING: Trading during news is allowed for your normal trading strategy. Using “news trading” strategies that “chase the market” or place orders on both sides but to be lucky or gamble the outcome of news is not allowed.
-No Hedging of Any Kind – Directional Trading only
+Overview
+To maintain integrity and ensure funding is provided only to disciplined and consistent traders, Apex Trader Funding strictly prohibits certain behaviors and trading practices.
 
-Holding both long and short positions simultaneously on the same or correlated instrument is strictly prohibited. This rule ensures that trades are based on strategic analysis rather than speculative attempts to hedge both sides during a breakout or news driven event for example. 
+Violating these rules may result in account closure, forfeiture of funds, or additional verification procedures.
 
-By adhering to these guidelines, traders can maintain their accounts in good standing and demonstrate the consistent, disciplined approach Apex seeks to fund.
+
+Account Ownership and Access
+
+Account Sharing
+You may not share your account access credentials with anyone.
+
+Only the registered account holder may access and trade the account.
+
+
+Unauthorized Users
+Allowing another individual to access or verify your account is prohibited.
+
+Apex may request additional verification, audits, or documentation to ensure the authorized user is the only person accessing the account.
+
+
+Multiple User Accounts
+Creating multiple Apex user accounts is prohibited.
+
+This includes:
+
+- Creating multiple personal accounts
+- Creating additional accounts within the same household
+- Creating accounts to bypass restrictions such as evaluation limits or trader probation
+
+
+Payment and Financial Information
+
+Payment Methods
+All payments must be made using a bank account, debit card, or credit card registered in your own name.
+
+Reward payouts may only be sent to a bank account held in your own name.
+
+
+Chargebacks and Payment Disputes
+Submitting a chargeback, dispute, or refund request in bad faith is prohibited.
+
+
+False Information
+Submitting false or misleading information or documents is prohibited.
+
+This includes information related to:
+
+- Identity
+- Residency
+- Financial status
+- Account details
+
+
+Identity Concealment and Network Manipulation
+
+VPN and Proxy Use
+Using VPNs, proxy servers, cloud servers, anonymizing tools, or similar technologies to conceal identity or location is prohibited when used to:
+
+- Circumvent rules or security controls
+- Hide previous violations
+- Bypass geographic restrictions
+- Engage in fraudulent or deceptive activity
+
+
+System Manipulation
+Manipulating Apex systems, documents, trade logs, communications, or impersonating company staff is strictly prohibited.
+
+
+Abuse of Services
+Using Apex services in a way that attempts to exploit or “game” the system for personal advantage is prohibited.
+
+
+Trading Behavior Restrictions
+
+Stop Loss and Risk Management
+All trades must have either a pending stop loss or a defined mental stop loss and risk management strategy.
+
+Trading without risk management measures is prohibited.
+
+
+High-Risk Trading Strategies
+Strategies that risk large losses for very small profit targets are not allowed.
+
+Example:
+A five-tick profit target combined with a 150-tick stop loss.
+
+
+Using the Drawdown Threshold as a Stop Loss
+Using the account’s maximum drawdown threshold as a stop loss to absorb large losses is prohibited.
+
+
+Unsustainable Trading Strategies
+Any trading approach that fails to demonstrate consistent growth or responsible risk management is prohibited.
+
+
+Professional Trading Standards
+Traders must use strategies consistent with those used when trading personal capital with a regulated broker.
+
+Apex does not fund traders who deviate from responsible professional trading standards.
+
+
+Simulation Environment Manipulation
+
+Manipulating the Simulated Environment
+Attempting to manipulate the simulated trading environment is strictly prohibited.
+
+This includes:
+
+- High Frequency Trading (HFT) designed to exploit the simulation
+- Attempting to obtain erroneous fills
+- Violating maximum contract limits
+
+
+Non-Directional Bracket Trading
+Leaving orders open on both sides of the market in an attempt to capture random price movement is prohibited.
+
+
+Hedging and Non-Directional Trading
+
+No Hedging
+Holding both long and short positions simultaneously on the same or correlated instruments is strictly prohibited.
+
+Trading must be directional and based on strategy rather than hedging both sides of the market.
+
+
+Trade Position Rules
+
+Holding Positions Through Market Close
+Open positions must be closed before market close.
+
+Holding positions through the close is prohibited.
+
+
+Account and Resource Sharing
+
+Shared Devices or Infrastructure
+Sharing the following with other traders is strictly prohibited:
+
+- MAC addresses
+- Computers
+- IP addresses
+- Credit cards
+- Trade copying arrangements
+
+Violations may result in account closure and additional verification audits.
+
+
+Evaluation Account Abuse
+
+Stockpiling Evaluations
+Purchasing large numbers of discounted evaluation accounts with the intent of cycling through accounts or intentionally failing them for windfall profits is prohibited.
+
+
+Automation and Algorithm Use
+
+No Automated Trading Systems
+Automated trading systems, algorithms, or preprogrammed logic are not permitted.
+
+Rewards are intended for human traders actively participating in the learning and trading process.
+
+
+News Trading
+
+Permitted
+Trading during news events as part of a normal trading strategy is allowed.
+
+Prohibited
+Strategies that attempt to gamble on news events by placing orders on both sides of the market are not allowed.
+
+
+Consequences of Violations
+If prohibited activities are detected:
+
+- Accounts may be closed
+- Account balances may be forfeited
+- Apex may conduct further audits or verification procedures
+
+These measures ensure compliance with the Apex Trader Funding trader agreement.
+
+
+Compliance Expectations
+Traders are expected to follow these rules to maintain accounts in good standing and demonstrate the consistent and disciplined trading practices required for funding.
