@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Payout FAQ Answerer</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121933;
+      --panel2: #1a2345;
+      --text: #eef2ff;
+      --muted: #aeb8d6;
+      --border: #2b3768;
+      --accent: #7aa2ff;
+      --good: #98f5ae;
+      --warn: #ffb4b4;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0a0f1d 0%, #101735 100%);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 18px 36px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+      line-height: 1.15;
+    }
+
+    .sub {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 980px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(18, 25, 51, 0.96);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-head {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .card-head h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .card-body {
+      padding: 18px;
+    }
+
+    .pill {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    textarea,
+    input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--panel2);
+      color: var(--text);
+      padding: 14px;
+      font: inherit;
+      resize: vertical;
+      outline: none;
+    }
+
+    textarea:focus,
+    input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(122, 162, 255, 0.18);
+    }
+
+    #questionInput {
+      min-height: 160px;
+    }
+
+    #answerBox {
+      min-height: 260px;
+      white-space: pre-wrap;
+      background: #0d142b;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      line-height: 1.7;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 12px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.08s ease, opacity 0.2s ease;
+    }
+
+    button:hover {
+      opacity: 0.96;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    .primary {
+      background: var(--accent);
+      color: #081225;
+    }
+
+    .secondary {
+      background: #27345f;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .status {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .good { color: var(--good); }
+    .warn { color: var(--warn); }
+
+    .footer {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    code {
+      background: rgba(255,255,255,0.08);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .two {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Apex Payout FAQ Answerer</h1>
+    <p class="sub">
+      Paste a question and this page will send it to your Vercel API route at <code>/api/ask</code>.
+      Your server reads the FAQ files from your repo, sends them to OpenAI, and answers only from those FAQs.
+      The answer is instructed to match how the person asked the question.
+    </p>
+
+    <div class="grid">
+      <section class="card">
+        <div class="card-head">
+          <h2>Ask a Question</h2>
+        </div>
+        <div class="card-body">
+          <div class="pill">Server reads FAQ files from /faqs</div>
+
+          <div class="two">
+            <div>
+              <label for="modelInput">Model</label>
+              <input id="modelInput" type="text" value="gpt-4.1-mini" />
+            </div>
+            <div>
+              <label for="temperatureInput">Temperature</label>
+              <input id="temperatureInput" type="number" min="0" max="1" step="0.1" value="0.2" />
+            </div>
+          </div>
+
+          <div class="row"></div>
+
+          <label for="questionInput">Person's question</label>
+          <textarea id="questionInput" placeholder="Example: after i request, do my trading days count towards this payout or the next one?"></textarea>
+
+          <div class="row">
+            <button id="answerBtn" class="primary">Answer Question</button>
+            <button id="clearBtn" class="secondary">Clear</button>
+          </div>
+
+          <div id="status" class="status">Ready.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>Answer</h2>
+        </div>
+        <div class="card-body">
+          <div id="answerBox">Your answer will appear here.</div>
+          <div class="footer">
+            This page does not store your API key. It expects your backend route to handle the OpenAI call securely.
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const answerBtn = document.getElementById("answerBtn");
+    const clearBtn = document.getElementById("clearBtn");
+    const questionInput = document.getElementById("questionInput");
+    const answerBox = document.getElementById("answerBox");
+    const status = document.getElementById("status");
+    const modelInput = document.getElementById("modelInput");
+    const temperatureInput = document.getElementById("temperatureInput");
+
+    async function askQuestion() {
+      const question = questionInput.value.trim();
+      const model = modelInput.value.trim() || "gpt-4.1-mini";
+      const temperature = Number(temperatureInput.value);
+
+      if (!question) {
+        answerBox.textContent = "Please enter a question first.";
+        status.innerHTML = '<span class="warn">No question entered.</span>';
+        return;
+      }
+
+      answerBtn.disabled = true;
+      answerBox.textContent = "Thinking...";
+      status.textContent = "Sending question to AI...";
+
+      try {
+        const res = await fetch("/api/ask", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            question,
+            model,
+            temperature
+          })
+        });
+
+        let data = {};
+        try {
+          data = await res.json();
+        } catch (jsonError) {
+          throw new Error("Server returned a non-JSON response");
+        }
+
+        if (!res.ok) {
+          throw new Error(data.error || "Request failed");
+        }
+
+        answerBox.textContent = data.answer || "No answer returned.";
+        status.innerHTML = '<span class="good">Answered from your FAQ files.</span>';
+      } catch (err) {
+        console.error(err);
+        answerBox.textContent = "API error: " + err.message;
+        status.innerHTML = '<span class="warn">API request failed.</span>';
+      } finally {
+        answerBtn.disabled = false;
+      }
+    }
+
+    answerBtn.addEventListener("click", askQuestion);
+
+    questionInput.addEventListener("keydown", (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+        askQuestion();
+      }
+    });
+
+    clearBtn.addEventListener("click", () => {
+      questionInput.value = "";
+      answerBox.textContent = "Your answer will appear here.";
+      status.textContent = "Ready.";
+      questionInput.focus();
+    });
+  </script>
+</body>
+</html>
