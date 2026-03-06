@@ -1,53 +1,95 @@
 EOD Performance Accounts (PA)
-EOD PA at a Glance:
-No intraday trailing drawdown  
 
-EOD Drawdown calculated once per day at market close and enforced intraday
+Overview
+The End-of-Day (EOD) Performance Account is a Simulated Funded (Sim Funded) account awarded after passing an EOD Evaluation.
 
-Daily Loss Limit (DLL) enforced intraday  
+The Performance Account is issued in the same account size and type as the Evaluation that was passed and follows the same End-of-Day drawdown structure.
 
-Tier Based Scaling
 
-100% Payout Split (upon meeting payout eligibility requirements)
+EOD Performance Account at a Glance
+Key characteristics of EOD Performance Accounts:
 
-The End-of-Day (EOD) Performance Account is a Simulated Funded (Sim Funded) account awarded after you pass the EOD Evaluation. It is issued in the same size as the Evaluation account you passed and follows the same End-of-Day drawdown structure.
+- No intraday trailing drawdown
+- End-of-Day (EOD) Drawdown calculated once per day at market close
+- EOD Drawdown enforced in real time during the trading session
+- Daily Loss Limit (DLL) enforced intraday
+- Tier-based scaling structure
+- 100% payout split after meeting payout eligibility requirements
+
 
 Account Parameters
-Click the links below to a complete guide on each of the parameters of the EOD PA account:
 
- 	25K	50K	100K	150K
-Max Drawdown (EOD)	$1,000	$2,000	$3,000	$4,000
-Scaling Tier Based	Yes	Yes	Yes	Yes
-Max Contracts	2	4	6	10
-DLL Tier Based	Yes	Yes	Yes	Yes
-Inactivity Rule	Yes	Yes	Yes	Yes
-EOD PA Trading Rules
-To keep your EOD Performance Account active, you must follow these rules:
+Account Size: 25K
+Max Drawdown (EOD): $1,000
+Scaling Tier Based: Yes
+Max Contracts: 2
+Daily Loss Limit Tier Based: Yes
+Inactivity Rule: Yes
 
-1. Do Not Breach the EOD Drawdown
-Your account balance, including unrealized PnL, may never touch or fall below the End-of-Day (EOD) Drawdown threshold. If it does, all positions are automatically liquidated and the PA is permanently closed.
+Account Size: 50K
+Max Drawdown (EOD): $2,000
+Scaling Tier Based: Yes
+Max Contracts: 4
+Daily Loss Limit Tier Based: Yes
+Inactivity Rule: Yes
 
-EOD Drawdown Explained
+Account Size: 100K
+Max Drawdown (EOD): $3,000
+Scaling Tier Based: Yes
+Max Contracts: 6
+Daily Loss Limit Tier Based: Yes
+Inactivity Rule: Yes
 
-2. No Prohibited Trading Activity
-All trading must follow Apex Trader Funding risk and conduct guidelines.
+Account Size: 150K
+Max Drawdown (EOD): $4,000
+Scaling Tier Based: Yes
+Max Contracts: 10
+Daily Loss Limit Tier Based: Yes
+Inactivity Rule: Yes
 
-Engaging in prohibited activities, including hedging violations or any form of rule circumvention, will result in immediate account closure.
 
-Prohibited Activities
+EOD Performance Account Trading Rules
 
-FAQs
-How many PAs can I have?
-You may hold up to 20 PAs active at the same time. This cap applies across all PA accounts combined, whether different size, EOD, or Intraday Trailing Drawdown.
+Rule 1 — Do Not Breach the EOD Drawdown
+Your account balance, including unrealized PnL, may never touch or fall below the End-of-Day (EOD) Drawdown threshold.
+
+If the threshold is reached:
+
+- All open positions are automatically liquidated
+- The Performance Account is permanently closed
+
+See: EOD Drawdown Explained
+
+
+Rule 2 — No Prohibited Trading Activity
+All trading activity must follow Apex Trader Funding risk and conduct guidelines.
+
+Engaging in prohibited trading behavior, including hedging violations or any attempt to circumvent rules, will result in immediate account closure.
+
+See: Prohibited Activities
+
+
+Frequently Asked Questions
+
+How many Performance Accounts can I have?
+You may hold up to 20 Performance Accounts at the same time.
+
+This limit applies across all Performance Accounts combined, including different account sizes, End-of-Day accounts, and Intraday Trailing Drawdown accounts.
+
 
 Is the Performance Account a live account?
-No, the Performance Account is a Simulated Funded (Sim Funded) account.
+No. The Performance Account is a Simulated Funded (Sim Funded) account.
 
-Does hitting the Daily Loss Limit close my PA?
-No. Hitting the DLL pauses trading for the remainder of the session. The account remains active and resets at the next session open.
+
+Does hitting the Daily Loss Limit close my Performance Account?
+No. Reaching the Daily Loss Limit pauses trading for the remainder of the trading session.
+
+The account remains active and trading resumes at the next session reset.
+
 
 Can my position size increase?
-Yes. Position size increases as you move up Scaling Levels based on your End-of-Day balance, up to the account’s maximum level.
+Yes. Position size can increase as you progress through the scaling tiers based on your End-of-Day account balance, up to the maximum contract limit for the account.
+
 
 Do I keep 100% of approved payouts?
 Yes. Approved payouts are issued at a 100% payout split once payout eligibility requirements are met.
