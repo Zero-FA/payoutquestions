@@ -72,6 +72,75 @@ const FAQ_LINKS = {
   "howto-request.txt": {
     title: "How to Request a Payout",
     url: "https://support.apextraderfunding.com/hc/en-us/articles/46884326359579-How-to-Request-a-Payout"
+  },
+    "Evaluation-Plan-Fees-and-Access-Explained.txt": {
+    title: "Evaluation Plan Fees and Access Explained",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/46723099925403-Evaluation-Plan-Fees-and-Access-Explained"
+  },
+
+  "PA-Activation-Process-&-Deadline-Explained.txt": {
+    title: "PA Activation Process & Deadline Explained",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/47237215800987-PA-Activation-Process-Deadline-Explained"
+  },
+
+  "Payment-Methods-and-Possible-Checkout-Errors.txt": {
+    title: "Payment Methods and Possible Checkout Errors",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/43481854699547-Payment-Methods-and-Possible-Checkout-Errors"
+  },
+
+  "Inactivity-Policy-on-Performance-Accounts.txt": {
+    title: "Inactivity Policy on Performance Accounts",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/47259602019611-Inactivity-Policy-on-Performance-Accounts-PA"
+  },
+
+  "Coupon-Codes.txt": {
+    title: "Coupon Codes",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/43190509217179-Coupon-Codes"
+  },
+
+  "Refund-Policy.txt": {
+    title: "Refund Policy",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/47255392198299-Refund-Policy"
+  },
+
+  "WealthCharts-Setup-and-Connection.txt": {
+    title: "WealthCharts Setup and Connection",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/31519768019611-WealthCharts-Setup-and-Connection"
+  },
+
+  "Common Questions-and-Troubleshooting-for-WealthCharts.txt": {
+    title: "Common Questions and Troubleshooting for WealthCharts",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/31137137544475-Common-Questions-and-Troubleshooting-for-WealthCharts"
+  },
+
+  "Rithmic-Account-Setup.txt": {
+    title: "Rithmic Account Setup",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/31519440985499-Rithmic-Account-Setup"
+  },
+
+  "Connection-Guide-for-NinjaTrader-Using-Rithmic.txt": {
+    title: "Connection Guide for NinjaTrader Using Rithmic",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/13397375485851-Connection-Guide-for-NinjaTrader-Using-Rithmic"
+  },
+
+  "Rithmic-Troubleshooting.txt": {
+    title: "Rithmic Troubleshooting",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/31519409430811-Rithmic-Troubleshooting-Lag-Error-Messages"
+  },
+
+  "Setting-up-Tradovate.txt": {
+    title: "Setting up Tradovate",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/31519502179099-Setting-up-Tradovate"
+  },
+
+  "Tradovate-NinjaTrader8-Connection.txt": {
+    title: "Tradovate x NinjaTrader8 Connection Guide",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/43191997568667-Tradovate-x-NinjaTrader8-Connection-Guide"
+  },
+
+  "Tradovate-Frequently-Asked-Questions.txt": {
+    title: "Tradovate Frequently Asked Questions",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/31519503465755-Tradovate-Frequently-Asked-Questions"
   }
 };
 
