@@ -1,110 +1,339 @@
 WealthCharts Commissions & Instruments
-Commissions for WealthCharts 
-Welcome to the current commission schedule for both Evaluation and Paid/Funded Accounts. Our goal is to provide you with the lowest possible commissions to enhance your trading experience.
+
+Overview
+This guide explains the commission structure and supported trading instruments for Apex Trader Funding accounts using the WealthCharts platform.
+
 
 How Commissions Are Deducted
-As you execute trades, commissions are automatically deducted from your account balance. 
 
-Please review the image below that shows the WealthCharts Trades Panel and how commissions are deducted.
+Commissions are automatically deducted from your account balance when trades are executed.
 
-Example: A trade is placed using 1 contract on NQ. The per side commission is $1.55. The trade is opened with 1 contract and closed with a second contract to flatten the position. Hence, 2 contracts multiplied by $1.55 commission = $3.10.
- 
+Example:
 
-On the WealthCharts Trades panel within the Broker Portfolio, the trade net P&L of $1.90 is shown in blue. The commissions for the trade have already been deducted. The gross P&L for a 0.25 point NQ trade is $5, then deducting $3.10 in commissions, this equates to a net P&L of $1.90.
+A trade is placed using 1 contract on NQ.
+
+Per-side commission: $1.55
+
+Opening the position: $1.55  
+Closing the position: $1.55  
+
+Total commission (round turn): $3.10
 
 
- 
+Trade Panel Example
 
-Commissions
-Name	Symbol	Exchange	Per Side	Round Turn
+Inside the WealthCharts Trades panel within the Broker Portfolio:
+
+Net P&L is displayed after commissions are deducted.
+
+Example calculation:
+
+Gross P&L for a 0.25 point NQ trade = $5.00  
+Commission deducted = $3.10  
+
+Final Net P&L = $1.90
+
+
+
+Commission Schedule
+
+
 Equity Futures
-E-Mini Dow ($5)	YM	CBOT	1.55	3.1
-E-Mini S&P 500	ES	CME	1.55	3.1
-E-Mini NASDAQ	NQ	CME	1.55	3.1
-E-Mini Russell	RTY	CME	1.55	3.1
-E-Mini S&P Midcap 400	EMD	CME	1.5	3
-Nikkei 225 (USD)	NKD	CME	2.32	4.64
- 
-Currency Futures
-Australian Dollar	6A	CME	1.77	3.54
-British Pound	6B	CME	1.77	3.54
-Canadian Dollar	6C	CME	1.77	3.54
-Swiss Franc	6S	CME	1.77	3.54
-Euro FX	6E	CME	1.77	3.54
-New Zealand Dollar	6N	CME	1.77	3.54
- 
-Agricultural Futures
-Lean Hogs	HE	CME	2.27	4.54
-Live Cattle	LE	CME	2.27	4.54
-Feeder Cattle	GF	CME	2.27	4.54
-Soybeans	ZS	CBOT	2.27	4.54
-Soybean Oil	ZL	CBOT	2.27	4.54
-Corn	ZC	CBOT	2.27	4.54
-Wheat	ZW	CBOT	2.27	4.54
-Soybean Meal	ZM	CBOT	2.27	4.54
- 
-Energy Futures
-RBOB Gasoline	RB	NYMEX	1.67	3.34
-Crude Oil	CL	NYMEX	1.67	3.34
-Natural Gas	NG	NYMEX	1.77	3.54
-E-Mini Crude Oil	QM	NYMEX	1.37	2.74
-E-Mini Natural Gas	QG	NYMEX	0.67	1.34
-Heating Oil	HO	NYMEX	1.67	3.34
- 
-Micro Futures
-Micro E-Mini Dow	MYM	CBOT	0.52	1.04
-Micro E-Mini S&P 500	MES	CME	0.52	1.04
-Micro E-Mini NASDAQ	MNQ	CME	0.52	1.04
-Micro E-Mini Russell	M2K	CME	0.52	1.04
-Micro Crude Oil	MCL	NYMEX	0.67	1.34
-E-Micro Australian Dollar	M6A	CME	0.41	0.82
-E-Micro Euro	M6E	CME	0.41	0.82
-Cryptocurrency	 	 	 	 
-Micro Bitcoin Futures	MBT	CME	2.67	5.34
-Micro Ethereum Futures	MET	CME	0.37	0.74
-What instruments can be traded on WealthCharts?
-Note: You must trade the front-month contract on WealthCharts (e.g., NQZ5); the continuous contract (e.g., NQ1) will result in rejected orders.
 
-Name	Symbol	Exchange
-Equity Futures	 	 
-E-mini S&P 500 (ES)	ES	CME
-Nikkei NKD (NKD)	NKD	CME
-E-mini NASDAQ 100 (NQ)	NQ	CME
-Mini-DOW (YM)	YM	CBOT
-E-mini Midcap 400 (EMD)	EMD	CME
-Russell 2000 (RTY)	RTY	CME
-Currency Futures	 	 
-Australian Dollar (6A)	6A	CME
-British Pound (6B)	6B	CME
-Canadian Dollar (6C)	6C	CME
-Euro FX (6E)	6E	CME
-Swiss Franc (6S)	6S	CME
-New Zealand Dollar (6N)	6N	CME
-Agricultural Futures	 	 
-Lean Hogs (HE)	HE	CME
-Live Cattle (LE)	LE	CME
-Feeder Cattle (GF)	GF	CME
-Corn (ZC)	ZC	CBOT
-Wheat (ZW)	ZW	CBOT
-Soybeans (ZS)	ZS	CBOT
-Soybean Meal (ZM)	ZM	CBOT
-Soybean Oil (ZL)	ZL	CBOT
-Energy Futures	 	 
-Crude Oil (CL)	CL	NYMEX
-Mini Crude Oil (QM)	QM	NYMEX
-Natural Gas (NG)	NG	NYMEX
-E-mini Natural Gas (QG)	QG	NYMEX
-Heating Oil (HO)	HO	NYMEX
-New York Harbor (RB)	RB	NYMEX
-Micro Futures	 	 
-Micro E-Mini S&P 500 (MES)	MES	CME
-Micro E-Mini Dow Jones (MYM)	MYM	CME
-Micro E-Mini Nasdaq-100 (MNQ)	MNQ	CME
-Micro E-Mini Russell 2000 (M2K)	M2K	CME
-E-Micro AUD/USD (M6A)	M6A	CME
-E-Micro EUR/USD (M6E)	M6E	CME
-Micro Crude Oil (MCL)	MCL	NYMEX
-Cryptocurrencies	 	 
-Micro Bitcoin (Note: Do not trade mini BT as it is not supported)	MBT	CME
-Micro Ether (Note: Do not trade mini ET as it is not supported)	MET	CME
-Note: Micro Crypto products operate as Mini products when considering your maximum contract allowance. E.g., if you are limited to 100 Micros and 10 Minis, you can only trade 10 contracts on MBT or MET.
+E-Mini Dow ($5) (YM)  
+Exchange: CBOT  
+Per Side: $1.55  
+Round Turn: $3.10
+
+E-Mini S&P 500 (ES)  
+Exchange: CME  
+Per Side: $1.55  
+Round Turn: $3.10
+
+E-Mini NASDAQ (NQ)  
+Exchange: CME  
+Per Side: $1.55  
+Round Turn: $3.10
+
+E-Mini Russell (RTY)  
+Exchange: CME  
+Per Side: $1.55  
+Round Turn: $3.10
+
+E-Mini S&P Midcap 400 (EMD)  
+Exchange: CME  
+Per Side: $1.50  
+Round Turn: $3.00
+
+Nikkei 225 (NKD)  
+Exchange: CME  
+Per Side: $2.32  
+Round Turn: $4.64
+
+
+
+Currency Futures
+
+Australian Dollar (6A)  
+Exchange: CME  
+Per Side: $1.77  
+Round Turn: $3.54
+
+British Pound (6B)  
+Exchange: CME  
+Per Side: $1.77  
+Round Turn: $3.54
+
+Canadian Dollar (6C)  
+Exchange: CME  
+Per Side: $1.77  
+Round Turn: $3.54
+
+Swiss Franc (6S)  
+Exchange: CME  
+Per Side: $1.77  
+Round Turn: $3.54
+
+Euro FX (6E)  
+Exchange: CME  
+Per Side: $1.77  
+Round Turn: $3.54
+
+New Zealand Dollar (6N)  
+Exchange: CME  
+Per Side: $1.77  
+Round Turn: $3.54
+
+
+
+Agricultural Futures
+
+Lean Hogs (HE)  
+Exchange: CME  
+Per Side: $2.27  
+Round Turn: $4.54
+
+Live Cattle (LE)  
+Exchange: CME  
+Per Side: $2.27  
+Round Turn: $4.54
+
+Feeder Cattle (GF)  
+Exchange: CME  
+Per Side: $2.27  
+Round Turn: $4.54
+
+Soybeans (ZS)  
+Exchange: CBOT  
+Per Side: $2.27  
+Round Turn: $4.54
+
+Soybean Oil (ZL)  
+Exchange: CBOT  
+Per Side: $2.27  
+Round Turn: $4.54
+
+Corn (ZC)  
+Exchange: CBOT  
+Per Side: $2.27  
+Round Turn: $4.54
+
+Wheat (ZW)  
+Exchange: CBOT  
+Per Side: $2.27  
+Round Turn: $4.54
+
+Soybean Meal (ZM)  
+Exchange: CBOT  
+Per Side: $2.27  
+Round Turn: $4.54
+
+
+
+Energy Futures
+
+RBOB Gasoline (RB)  
+Exchange: NYMEX  
+Per Side: $1.67  
+Round Turn: $3.34
+
+Crude Oil (CL)  
+Exchange: NYMEX  
+Per Side: $1.67  
+Round Turn: $3.34
+
+Natural Gas (NG)  
+Exchange: NYMEX  
+Per Side: $1.77  
+Round Turn: $3.54
+
+E-Mini Crude Oil (QM)  
+Exchange: NYMEX  
+Per Side: $1.37  
+Round Turn: $2.74
+
+E-Mini Natural Gas (QG)  
+Exchange: NYMEX  
+Per Side: $0.67  
+Round Turn: $1.34
+
+Heating Oil (HO)  
+Exchange: NYMEX  
+Per Side: $1.67  
+Round Turn: $3.34
+
+
+
+Micro Futures
+
+Micro E-Mini Dow (MYM)  
+Exchange: CBOT  
+Per Side: $0.52  
+Round Turn: $1.04
+
+Micro E-Mini S&P 500 (MES)  
+Exchange: CME  
+Per Side: $0.52  
+Round Turn: $1.04
+
+Micro E-Mini NASDAQ (MNQ)  
+Exchange: CME  
+Per Side: $0.52  
+Round Turn: $1.04
+
+Micro E-Mini Russell (M2K)  
+Exchange: CME  
+Per Side: $0.52  
+Round Turn: $1.04
+
+Micro Crude Oil (MCL)  
+Exchange: NYMEX  
+Per Side: $0.67  
+Round Turn: $1.34
+
+E-Micro Australian Dollar (M6A)  
+Exchange: CME  
+Per Side: $0.41  
+Round Turn: $0.82
+
+E-Micro Euro (M6E)  
+Exchange: CME  
+Per Side: $0.41  
+Round Turn: $0.82
+
+
+
+Cryptocurrency Futures
+
+Micro Bitcoin (MBT)  
+Exchange: CME  
+Per Side: $2.67  
+Round Turn: $5.34
+
+Micro Ethereum (MET)  
+Exchange: CME  
+Per Side: $0.37  
+Round Turn: $0.74
+
+
+
+WealthCharts Supported Instruments
+
+Important:
+
+You must trade the front-month contract.
+
+Example:
+
+Correct: NQZ5  
+Incorrect: NQ1 (continuous contracts will be rejected)
+
+
+
+Equity Futures
+
+E-mini S&P 500 (ES)  
+Nikkei NKD (NKD)  
+E-mini NASDAQ 100 (NQ)  
+Mini-DOW (YM)  
+E-mini Midcap 400 (EMD)  
+Russell 2000 (RTY)
+
+
+
+Currency Futures
+
+Australian Dollar (6A)  
+British Pound (6B)  
+Canadian Dollar (6C)  
+Euro FX (6E)  
+Swiss Franc (6S)  
+New Zealand Dollar (6N)
+
+
+
+Agricultural Futures
+
+Lean Hogs (HE)  
+Live Cattle (LE)  
+Feeder Cattle (GF)  
+Corn (ZC)  
+Wheat (ZW)  
+Soybeans (ZS)  
+Soybean Meal (ZM)  
+Soybean Oil (ZL)
+
+
+
+Energy Futures
+
+Crude Oil (CL)  
+Mini Crude Oil (QM)  
+Natural Gas (NG)  
+E-mini Natural Gas (QG)  
+Heating Oil (HO)  
+RBOB Gasoline (RB)
+
+
+
+Micro Futures
+
+Micro E-Mini S&P 500 (MES)  
+Micro E-Mini Dow (MYM)  
+Micro E-Mini NASDAQ (MNQ)  
+Micro E-Mini Russell (M2K)  
+Micro Crude Oil (MCL)  
+E-Micro AUD/USD (M6A)  
+E-Micro EUR/USD (M6E)
+
+
+
+Cryptocurrency Futures
+
+Micro Bitcoin (MBT)  
+Micro Ether (MET)
+
+
+
+Cryptocurrency Contract Notes
+
+Do NOT trade the mini contracts for crypto futures.
+
+Unsupported:
+
+Mini Bitcoin (BT)  
+Mini Ethereum (ET)
+
+
+Micro crypto products count as mini contracts for contract limits.
+
+Example:
+
+If your account allows:
+
+100 micro contracts  
+10 mini contracts  
+
+You may only trade:
+
+10 contracts of MBT or MET.
