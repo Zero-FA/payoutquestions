@@ -1,94 +1,150 @@
 EOD Drawdown Explained
-EOD Drawdown at a Glance:
-Defines the maximum total drawdown allowed on your account
-Calculated once daily at market close
-Enforced in real time during the next trading session
-If reached → positions close automatically
-If reached → account is failed (evaluation) or closed (PA)
-Threshold never moves downward 
+
+Overview
+The End-of-Day (EOD) Drawdown defines the maximum total drawdown allowed on an account.
+
+Key characteristics:
+
+- The EOD Drawdown is calculated once per trading day at market close.
+- It is enforced in real time during the following trading session.
+- If the threshold is reached, all open positions are automatically liquidated.
+- Reaching the threshold results in evaluation failure or Performance Account (PA) closure.
+- The EOD threshold never moves downward.
+
+
 What is the EOD Drawdown?
-The End-of-Day (EOD) Drawdown sets the lowest balance your account is allowed to reach. It is calculated once per day at market close based on your EOD account balance.
-Once calculated, the EOD Drawdown becomes active for the next trading session. If at any moment during the trading session the account balance touches or falls below the EOD Drawdown, all open positions are automatically liquidated. 
+The End-of-Day (EOD) Drawdown sets the lowest balance your account is allowed to reach.
 
-In an evaluation, reaching the EOD Drawdown results in evaluation failure.
-In a Performance Account (PA), reaching the EOD Threshold results in account closure.
+It is calculated once per day at market close based on the account’s End-of-Day balance.
 
-How is EOD Threshold Calculated?
-The EOD Threshold is recalculated once per trading day at 4:59:59 PM ET, based on the account’s closing balance. It always trails the highest achieved EOD balance and never moves downward. Each account begins with a fixed drawdown amount based on account size.  
+Once calculated, the EOD Drawdown becomes active during the next trading session.
 
-Example Explained
-What Happens If EOD threshold is reached intraday
-If at any moment your account balance touches or falls below the EOD Threshold:
+If the account balance touches or falls below the EOD Drawdown during a trading session:
 
-All open positions are automatically liquidated
-Your evaluation is failed or PA is closed
-Trading stops immediately
-Even though the threshold is calculated at end-of-day, it is enforced in real time. 
+- All open positions are automatically liquidated.
+- In an Evaluation account, the evaluation fails.
+- In a Performance Account (PA), the account is closed.
 
-When EOD Drawdown Stops Trailing
-Performance Accounts
 
-Once the EOD Threshold reaches Starting Balance + $100, it stops increasing.
+How the EOD Threshold is Calculated
+The EOD Threshold is recalculated once per trading day at 4:59:59 PM ET.
 
-Example for a 50K EOD PA:
+It is based on the account’s closing End-of-Day balance.
+
+Important rules:
+
+- The threshold trails the highest End-of-Day balance achieved.
+- The threshold never moves downward.
+- Each account starts with a fixed drawdown amount based on account size.
+
+
+Intraday Enforcement
+Even though the EOD Drawdown is calculated at market close, it is enforced in real time during the next trading session.
+
+If the account balance touches or falls below the threshold during the session:
+
+- All positions are automatically liquidated.
+- Trading stops immediately.
+- The evaluation fails or the Performance Account closes.
+
+
+When the EOD Drawdown Stops Trailing
+
+Performance Accounts (PA)
+For Performance Accounts, the EOD Threshold stops increasing once it reaches:
+
+Starting Balance + $100
+
+Example for a 50K EOD Performance Account:
 
 Threshold Stop Level = $50,100
 
-This occurs when the Highest EOD Balance reaches $52,100 (Starting Balance + Max Drawdown + $100). From that point onward, the EOD Threshold remains fixed at $50,100
+This occurs when the highest End-of-Day balance reaches:
 
-Evaluations Rithmic and Wealthcharts
+$52,100 (Starting Balance + Maximum Drawdown + $100)
 
-EOD Threshold stops trailing and becomes fixed when it reaches an amount equal to the Target Profit balance.
-
-Example for a 50K Rithmic and Wealthcharts EOD Evaluation account:
-
-Threshold Stop Level = $53.000
-
-This occurs when the Highest EOD Balance closes above $55,000 ($53,000 + $2,000). From that point onward, the EOD Threshold remains fixed at $53,000.
-
-Evaluations Tradovate
-
-EOD Drawdown trails indefinitely with the peak EOD account balance.
-
-Video Explanation of EOD Drawdown
-Play
+From that point forward, the threshold remains fixed at $50,100.
 
 
-00:00
-01:38
-Mute
+Evaluations (Rithmic and WealthCharts)
+For Rithmic and WealthCharts Evaluation accounts, the EOD Threshold stops trailing once it reaches the target profit level.
 
-Settings
-Enter fullscreen
+Example for a 50K Evaluation account:
 
-Play
+Threshold Stop Level = $53,000
+
+This occurs when the highest End-of-Day balance closes above:
+
+$55,000 ($53,000 + $2,000)
+
+After that point, the threshold remains fixed at $53,000.
+
+
+Evaluations (Tradovate)
+For Tradovate Evaluation accounts, the EOD Drawdown continues trailing indefinitely based on the highest End-of-Day account balance.
+
+
 Frequently Asked Questions
-Do I fail if I reach EOD Threshold Intraday?
-If your account balance touches or falls below the EOD Threshold at any time during the trading session:
 
-All open positions are automatically liquidated
-Your evaluation is failed or PA is closed
-Even though the threshold is calculated at end-of-day, it is enforced in real time once established.
+Do I fail if I reach the EOD Threshold intraday?
+Yes. If your account balance touches or falls below the EOD Threshold at any time during the trading session:
+
+- All open positions are automatically liquidated.
+- Your evaluation fails or your Performance Account is closed.
+
+Even though the threshold is calculated at end-of-day, it is enforced in real time.
+
 
 Does the EOD Threshold move?
-Yes, the EOD Threshold moves but only in one direction. It moves up after your EOD Balance reaches a new high. The EOD Threshold never moves down after negative trading days.
+Yes, but only upward.
 
-What happens to the EOD Threshold on losing days?
-On a losing day, the EOD threshold remains unchanged, even if the EOD balance is lower than the previous EOD balance.
+The threshold increases when your End-of-Day balance reaches a new high. It never moves downward after losing trading days.
 
-What is the difference between DLL and EOD Threshold?
-The Daily Loss Limit (DLL) and the End-of-Day (EOD) Threshold serve different risk-control purposes. The DLL limits how much an account can lose within a single trading day; if it is reached, all open positions are automatically liquidated and trading is paused for the remainder of the day, but the account remains active and resumes trading the next session.
 
-The EOD Threshold, by contrast, defines the maximum total drawdown allowed across the life of the account; it is calculated at market close, enforced intraday once established, and if touched at any time, results in immediate liquidation and failure of both Evaluations and PAs.
+What happens to the threshold on losing days?
+If the account has a losing day, the EOD Threshold does not move. It remains at the previous level even if the account balance is lower.
 
-In simple terms, the DLL ends your trading day, while the EOD Threshold disqualifies your Evaluation and/ or PA.
+
+What is the difference between the Daily Loss Limit (DLL) and the EOD Threshold?
+The Daily Loss Limit (DLL) limits how much an account can lose within a single trading day.
+
+If the DLL is reached:
+
+- All open positions are liquidated.
+- Trading stops for the remainder of the day.
+- The account remains active and trading resumes the next session.
+
+The EOD Threshold defines the maximum total drawdown allowed across the entire life of the account.
+
+If the EOD Threshold is reached:
+
+- Positions are liquidated immediately.
+- The evaluation fails or the Performance Account is closed permanently.
+
+In simple terms:
+The DLL ends your trading day.
+The EOD Threshold disqualifies your evaluation or closes your account.
+
 
 Can my account dip below the threshold intraday if it later recovers?
-No, the account may experience intraday drawdown, but it may never touch or cross the EOD Threshold level at any time.
+No.
 
-What is the difference between Live Trailing Threshold and EOD Threshold?
-The Live Trailing Threshold and the End-of-Day (EOD) Threshold both protect the account from exceeding maximum drawdown and are enforceable intraday; however, they differ in how they are calculated. A Live Trailing Threshold continuously recalculates in real time and trails the highest intraday account balance, meaning it can move upward at any moment during the trading session.
+The account may experience intraday drawdown, but it may never touch or cross the EOD Threshold level at any time.
 
-The EOD Threshold, by contrast, is calculated only once per day at market close based on the closing account balance; it remains fixed throughout the next trading session but is still enforced in real time if touched.
 
-In simple terms, the Live Trailing Threshold moves with intraday performance, while the EOD Threshold sets at market close and enforces during the following day.
+What is the difference between the Live Trailing Threshold and the EOD Threshold?
+Both thresholds protect the account from exceeding the maximum drawdown, but they are calculated differently.
+
+Live Trailing Threshold
+- Recalculates continuously in real time.
+- Trails the highest intraday account balance.
+- Can move upward during the trading session.
+
+End-of-Day (EOD) Threshold
+- Calculated once per day at market close.
+- Based on the End-of-Day account balance.
+- Remains fixed during the following trading session but is enforced in real time.
+
+In simple terms:
+The Live Trailing Threshold moves with intraday performance.
+The EOD Threshold is calculated at market close and enforced during the next trading day.
