@@ -95,14 +95,23 @@
       min-height: 160px;
     }
 
-    #answerBox {
-      min-height: 260px;
-      white-space: pre-wrap;
+    .result-box {
       background: #0d142b;
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 16px;
       line-height: 1.7;
+    }
+
+    .question-box {
+      min-height: 90px;
+      white-space: pre-wrap;
+      margin-bottom: 14px;
+    }
+
+    .answer-box {
+      min-height: 220px;
+      white-space: pre-wrap;
     }
 
     .source-box {
@@ -114,10 +123,12 @@
       line-height: 1.6;
     }
 
-    .source-label {
+    .section-label {
       font-size: 12px;
       color: var(--muted);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
     .source-link {
@@ -215,116 +226,134 @@
           <h2>Answer</h2>
         </div>
         <div class="card-body">
-          <div id="answerBox">Your answer will appear here.</div>
+          <div id="userQuestionWrap" class="result-box question-box" style="display:none;">
+            <div class="section-label">User Question</div>
+            <div id="userQuestionBox"></div>
+          </div>
+
+          <div id="answerWrap" class="result-box answer-box">
+            <div class="section-label">Answer</div>
+            <div id="answerBox">Your answer will appear here.</div>
+          </div>
+
           <div id="sourceBox" class="source-box" style="display:none;"></div>
         </div>
       </section>
     </div>
   </div>
 
- <script>
-  const answerBtn = document.getElementById("answerBtn");
-  const clearBtn = document.getElementById("clearBtn");
-  const questionInput = document.getElementById("questionInput");
-  const answerBox = document.getElementById("answerBox");
-  const sourceBox = document.getElementById("sourceBox");
-  const status = document.getElementById("status");
+  <script>
+    const answerBtn = document.getElementById("answerBtn");
+    const clearBtn = document.getElementById("clearBtn");
+    const questionInput = document.getElementById("questionInput");
+    const answerBox = document.getElementById("answerBox");
+    const userQuestionWrap = document.getElementById("userQuestionWrap");
+    const userQuestionBox = document.getElementById("userQuestionBox");
+    const sourceBox = document.getElementById("sourceBox");
+    const status = document.getElementById("status");
 
-  function escapeHtml(value) {
-    return String(value)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#39;");
-  }
-
-  async function askQuestion() {
-    const question = questionInput.value.trim();
-
-    if (!question) {
-      answerBox.textContent = "Please enter a question first.";
-      sourceBox.style.display = "none";
-      sourceBox.innerHTML = "";
-      status.innerHTML = '<span class="warn">No question entered.</span>';
-      return;
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
     }
 
-    answerBtn.disabled = true;
-    answerBox.textContent = "Thinking...";
-    sourceBox.style.display = "none";
-    sourceBox.innerHTML = "";
-    status.textContent = "Sending question...";
+    async function askQuestion() {
+      const question = questionInput.value.trim();
 
-    try {
-      const res = await fetch("/api/ask", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ question })
-      });
+      if (!question) {
+        answerBox.textContent = "Please enter a question first.";
+        sourceBox.style.display = "none";
+        sourceBox.innerHTML = "";
+        status.innerHTML = '<span class="warn">No question entered.</span>';
+        return;
+      }
 
-      const raw = await res.text();
+      userQuestionWrap.style.display = "block";
+      userQuestionBox.textContent = question;
 
-      let data;
+      questionInput.value = "";
+
+      answerBtn.disabled = true;
+      answerBox.textContent = "Thinking...";
+      sourceBox.style.display = "none";
+      sourceBox.innerHTML = "";
+      status.textContent = "Sending question...";
+
       try {
-        data = JSON.parse(raw);
-      } catch {
-        throw new Error(raw.slice(0, 300) || "Server returned a non-JSON response");
+        const res = await fetch("/api/ask", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ question })
+        });
+
+        const raw = await res.text();
+
+        let data;
+        try {
+          data = JSON.parse(raw);
+        } catch {
+          throw new Error(raw.slice(0, 300) || "Server returned a non-JSON response");
+        }
+
+        if (!res.ok) {
+          throw new Error(data.error || "Request failed");
+        }
+
+        answerBox.textContent = data.answer || "No answer returned.";
+
+        if (data.sourceUrl) {
+          sourceBox.style.display = "block";
+          sourceBox.innerHTML = `
+            <div class="section-label">Source</div>
+            <a class="source-link" href="${escapeHtml(data.sourceUrl)}" target="_blank" rel="noopener noreferrer">
+              ${escapeHtml(data.sourceTitle || data.sourceFile || data.sourceUrl)}
+            </a>
+          `;
+        } else if (data.sourceTitle || data.sourceFile) {
+          sourceBox.style.display = "block";
+          sourceBox.innerHTML = `
+            <div class="section-label">Source</div>
+            <div>${escapeHtml(data.sourceTitle || data.sourceFile)}</div>
+          `;
+        }
+
+        status.innerHTML = '<span class="good">Done.</span>';
+      } catch (err) {
+        console.error(err);
+        answerBox.textContent = "API error: " + err.message;
+        sourceBox.style.display = "none";
+        sourceBox.innerHTML = "";
+        status.innerHTML = '<span class="warn">API request failed.</span>';
+      } finally {
+        answerBtn.disabled = false;
       }
+    }
 
-      if (!res.ok) {
-        throw new Error(data.error || "Request failed");
+    answerBtn.addEventListener("click", askQuestion);
+
+    questionInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        askQuestion();
       }
+    });
 
-      answerBox.textContent = data.answer || "No answer returned.";
-
-      if (data.sourceUrl) {
-        sourceBox.style.display = "block";
-        sourceBox.innerHTML = `
-          <div class="source-label">Source</div>
-          <a class="source-link" href="${escapeHtml(data.sourceUrl)}" target="_blank" rel="noopener noreferrer">
-            ${escapeHtml(data.sourceTitle || data.sourceFile || data.sourceUrl)}
-          </a>
-        `;
-      } else if (data.sourceTitle || data.sourceFile) {
-        sourceBox.style.display = "block";
-        sourceBox.innerHTML = `
-          <div class="source-label">Source</div>
-          <div>${escapeHtml(data.sourceTitle || data.sourceFile)}</div>
-        `;
-      }
-
-      status.innerHTML = '<span class="good">Done.</span>';
-    } catch (err) {
-      console.error(err);
-      answerBox.textContent = "API error: " + err.message;
+    clearBtn.addEventListener("click", () => {
+      questionInput.value = "";
+      userQuestionWrap.style.display = "none";
+      userQuestionBox.textContent = "";
+      answerBox.textContent = "Your answer will appear here.";
       sourceBox.style.display = "none";
       sourceBox.innerHTML = "";
-      status.innerHTML = '<span class="warn">API request failed.</span>';
-    } finally {
-      answerBtn.disabled = false;
-    }
-  }
-
-  answerBtn.addEventListener("click", askQuestion);
-
-  questionInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault();
-      askQuestion();
-    }
-  });
-
-  clearBtn.addEventListener("click", () => {
-    questionInput.value = "";
-    answerBox.textContent = "Your answer will appear here.";
-    sourceBox.style.display = "none";
-    sourceBox.innerHTML = "";
-    status.textContent = "Ready.";
-    questionInput.focus();
-  });
-</script>
+      status.textContent = "Ready.";
+      questionInput.focus();
+    });
+  </script>
 </body>
 </html>
