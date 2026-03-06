@@ -1,60 +1,130 @@
 Rithmic Account Setup
-If you are an existing user
-If you are an existing user with our version of Rithmic RTrader Pro already set up and connecting, skip to the next section: “NinjaTrader Setup”
 
-If you are a new user
-If you have just purchased your first Rithmic account(s) from Apex Trader Funding, please follow these instructions before going through the NinjaTrader setup.
+Overview
+This guide explains how to install and configure Rithmic RTrader Pro for Apex Trader Funding accounts.
 
-Step 1 – Uninstall other versions of RTrader
-If you have any other version of RTrader on your computer, you must uninstall it completely and delete the related Rithmic folder (as shown in the Apex setup guide).
+If you are already using Rithmic RTrader Pro and it is connecting correctly, you can skip this section and proceed to the NinjaTrader Setup guide.
 
-Step 2 – Download Rithmic RTrader Pro
-Download and install the correct version of Rithmic RTrader Pro using this link:
+
+Existing Users
+
+If you already have Apex’s version of RTrader Pro installed and working, no additional setup is required.
+
+You can continue directly to the NinjaTrader setup process.
+
+
+New Users
+
+If you recently purchased your first Rithmic account through Apex Trader Funding, complete the following steps before setting up NinjaTrader.
+
+
+Step 1 — Uninstall Other Versions of RTrader
+
+If you previously installed another version of RTrader:
+
+- Completely uninstall the existing RTrader software
+- Delete any related Rithmic folders on your computer
+
+This prevents conflicts between different versions of the platform.
+
+
+Step 2 — Download Rithmic RTrader Pro
+
+Download and install the correct version of Rithmic RTrader Pro from the official website:
+
 https://www.rithmic.com/rtraderpro
 
- 
 
-Step 3 – Locate your credentials
-Your username and password can be found:
+Step 3 — Locate Your Login Credentials
 
-In your Apex welcome email, or
+Your Rithmic login credentials are available in two locations:
 
-Inside your Apex Trader Funding Member Account, under
-“Rithmic and Ninja Trader Setup.”
+- Your Apex Trader Funding welcome email
+- Your Apex Trader Funding Member Dashboard
 
+Inside the dashboard, look for the section labeled:
 
-Caption: Access your Rithmic credentials inside your Apex Trader Funding account.
- 
-
- 
-Step 4 – Log in with your credentials
-Copy and paste your Rithmic username and password from your Apex welcome email or on your Apex Dashboard. Make sure NOT to copy any extra spaces before or after your login details, as this can cause connection errors.
+Rithmic and NinjaTrader Setup
 
 
+Step 4 — Log In With Your Credentials
 
-Caption: Enter your Rithmic username and password exactly as shown.
+Copy and paste your Rithmic username and password exactly as shown.
 
-Rithmic RTrader Pro Settings
-After completing the installation and login steps, configure your RTrader Pro as follows:
+Important:
+Do not include extra spaces before or after the credentials when copying them. Extra spaces may cause login errors.
 
-Open your RTrader Pro application.
 
-Click “Skip Settings” in the top-right corner.
+Rithmic RTrader Pro Configuration
 
+After installing and logging into RTrader Pro, configure the platform using the following settings.
+
+
+Open RTrader Pro
+Launch the RTrader Pro application after installation.
+
+
+Skip Initial Settings
+Click “Skip Settings” in the top-right corner of the setup window.
+
+
+Selective Load
 Leave Selective Load turned OFF.
 
-Copy and paste your Rithmic ID and password carefully — make sure there are no accidental spaces.
 
-Your Rithmic ID and password are stored [HERE].
+Enter Credentials
+Copy and paste your Rithmic ID and password carefully.
 
-Under System, select APEX.
+Make sure there are no extra spaces in the credentials.
 
-Under Gateway, choose the Area closest to you.
 
+System Selection
+Under the System field, select:
+
+APEX
+
+
+Gateway Selection
+Choose the gateway server closest to your geographic location.
+
+
+Market Data Setting
 Leave Market Data set to OFF.
 
-Rithmic allows only one Market Data session at a time. If you’re logged in on another platform (e.g., NinjaTrader), that counts as your session. To use two sessions with Market Data, you’ll need the “Rithmic 2nd Login Session” add-on.
+Rithmic allows only one active Market Data session at a time.
 
-Click LOGIN, and sign the two (2) mandatory agreements shown for ALL NEW USERS upon first login.
+If you are logged in on another platform (such as NinjaTrader), that counts as your active session.
 
-When prompted, select NON-PROFESSIONAL for data classification, unless you do not meet the criteria of a non-professional. In order to be considered a non-professional, you must (1) be an individual or small business entity using market data solely for your own personal, non-commercial use; (2) not be registered or licensed with any securities, futures, or commodities regulatory authority; (3) not be a member or seat holder of any exchange; (4) not work for, or act on behalf of, any business engaged in brokerage, banking, investment, or financial activities; and (5) not trade or manage assets for any third party."
+To use two market data sessions simultaneously, you must purchase the “Rithmic 2nd Login Session” add-on.
+
+
+Login and Agreements
+
+Click LOGIN after entering your settings.
+
+All new users will be prompted to sign two required agreements before accessing the platform.
+
+
+Market Data Classification
+
+When prompted, choose your market data classification.
+
+Most Apex traders should select:
+
+NON-PROFESSIONAL
+
+
+Non-Professional Data Requirements
+
+To qualify as a non-professional market data user, you must meet the following conditions:
+
+- You are an individual or small business using market data only for personal trading
+- You are not registered or licensed with any securities, futures, or commodities regulatory authority
+- You are not a member or seat holder of any exchange
+- You do not work for a brokerage, bank, investment firm, or financial services company
+- You do not manage or trade assets for other individuals or organizations
+
+
+Next Step
+
+After completing the Rithmic setup process, proceed to the NinjaTrader Setup guide to connect NinjaTrader to your Apex Rithmic accounts.
