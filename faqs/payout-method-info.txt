@@ -1,0 +1,40 @@
+Payout Method Information
+How to Set Up, Request, and Receive Your Payout
+
+At Apex Trader Funding, getting paid is simple. Whether you are based in the United States or internationally, we provide a reliable and streamlined payout process so you can enjoy the profits you’ve earned. This guide walks you through how to set up your payout method, request a payout, and understand the payout timeline.
+
+Setting Up Your Payout Method
+Before requesting a payout, you’ll need to set up your payout method inside your Apex Dashboard. The setup process depends on where you live:
+
+US-Based Users
+If you live in the United States, payouts are sent via ACH direct deposit directly to your US-based bank account. Be sure to use your correct ACH routing number (not a wire transfer number) to avoid delays.
+
+You can view the full step-by-step instructions on our US-based User Payout Method Set Up page.
+
+International Users
+If you live outside the United States, your payouts are processed securely through Plane, our trusted global payment partner. After your first payout is approved, you will receive an email invitation from Plane with instructions to link your local bank account. 
+
+See our full International User Payment Method Set Up page for step-by-step instructions.
+
+Submitting Your Payout Request
+To submit a payout request, select Request Payout from the Payouts tab on your Apex user dashboard. Any PA that is eligible for a payout request will be listed.
+
+After requesting a payout, you will become eligible for your next payout request once you have traded a minimum of eight days, including at least five days with profits of $50 or more, with no violations. Please note that these days can be seen on the PA charts and begin counting the day after your last payout request, or from the start of the account if no previous request has been made.
+
+Once you request a payout, you can immediately keep trading. You do NOT need to wait to trade until the payout is approved. Just be sure to trade as if the funds were already approved and removed from your balance, keeping in mind minimum thresholds so as not to blow the account.
+If you submit a request and then your account balance falls below the minimum required balance to request a payout, it will simply be denied. There is no reason to request to cancel or edit it. 
+
+International Users: For your first payout, you’ll receive an email from Plane after approval with instructions to connect your bank. Be sure to check your spam or junk folder if you don’t see it within a few days.
+
+Receiving Your Funds
+Overview of the Payout Timeline
+Here’s what to expect once you submit a request:
+
+Apex reviews your payout within 2 business days.
+If approved, funds are sent within 3–4 business days.
+Your bank or payment provider processes the deposit, usually within 3–7 business days.
+Most users receive payouts within 5–11 business days total.
+
+US users: Funds arrive by ACH direct deposit.
+International users: Funds arrive through Plane, timing depends on your local bank.
+If your Dashboard shows “PAID” but you haven’t received funds, please allow up to 7 more business days before contacting your bank or Plane. Please do not submit a Help Desk ticket during this standard processing window.
