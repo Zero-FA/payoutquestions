@@ -1,0 +1,100 @@
+Rithmic Troubleshooting (Lag + Error Messages)
+Connection problems with RTrader or Rithmic in NinjaTrader can be frustrating, especially when trading activities are at stake. This guide provides a step-by-step approach to troubleshooting and resolving these issues efficiently. By meticulously following these instructions, you can ensure a smooth and uninterrupted trading experience.
+
+Why Connection Issues Occur
+Before proceeding with the troubleshooting steps, it’s essential to understand that connection issues can arise due to various factors, such as incorrect login credentials, software glitches, cache problems, or inadequate system performance. Addressing these areas systematically will help identify and resolve the root cause of the problem.
+
+Essential Troubleshooting Steps
+Both RTrader and NinjaTrader require specific configurations to establish a stable connection. Follow the steps below to ensure that all settings are correctly applied.
+
+Clear Cache and Restart Applications
+If connection issues persist, clearing the cache and restarting both RTrader and NinjaTrader can help.
+
+Close RTrader: Exit the RTrader application completely.
+ 
+Clear NinjaTrader’s Cache:
+Navigate to Documents > NinjaTrader 8 > db.
+Delete the cache sub-folder.
+ 
+Restart Applications: Restart both NinjaTrader and RTrader to refresh the connection.
+
+
+Reinstall Software if Necessary
+As a last resort, uninstall and reinstall both RTrader and NinjaTrader to ensure that all software components are correctly installed.
+
+Uninstallation: Use your computer’s standard uninstallation process to remove both applications.
+ 
+Reinstallation: Download the latest versions from the official websites and reinstall them, following the initial setup steps meticulously.
+Measuring and Reducing Lag
+Lag can significantly impact your trading performance. Regularly measuring and addressing lag ensures that your data flows smoothly.
+
+Using the NT8 Lag Analyzer
+For Rithmic account users, the NT8 Lag Analyzer tool is invaluable in identifying internet lag issues.
+
+Download the Tool: Obtain the NT8 Lag Analyzer from this link.
+ 
+Import the Add-On:
+Open NinjaTrader.
+Navigate to Tools > Import > NinjaScript Add-On.
+Browse and select the downloaded zip folder without extracting it.
+ 
+Configure Market Analyzer:
+Go to New > Market Analyzer.
+Right-click on a blank space and select Columns.
+Double-click the NeuroStreet folder and choose NS_DataLagTimer.
+Click OK to apply.
+ 
+Add Instruments: Click on an empty space within the Market Analyzer and add the instruments you wish to monitor for lag.
+
+
+Fixing Lagging Data
+If you notice data lag, follow these steps to mitigate the issue:
+
+Reset the Database:
+Go to Tools > Database > Reset Database in NinjaTrader.
+Re-establish Rithmic Connection:
+Delete your existing connection to Rithmic and add it back.
+Consider using IQFeed for Futures data, which offers faster and more stable connections, albeit at a cost.
+ 
+Clear Cache:
+Shut down NinjaTrader.
+Navigate to Documents > NinjaTrader 8 > db and delete the cache folder.
+Restart NinjaTrader and test the connection.
+ 
+Open in Safe Mode:
+Hold the Ctrl key while launching NinjaTrader to open it in Safe Mode.
+Verify the mode under the Help section.
+Close and reopen NinjaTrader normally.
+ 
+Disable Tick Refresh on Charts:
+Open your workspace.
+Disconnect and remove tick refresh from all charts.
+Re-save your workspace, reconnect to data, and reload.
+ 
+Ensure Adequate System Performance:
+Verify that your computer meets the minimum benchmark of 30k. Watch the instructional video below for guidance on checking your system’s performance.
+Play
+
+
+00:00
+1:00:35
+Mute
+
+Settings
+Enter fullscreen
+
+Play
+
+  7. Make sure you have the following settings in your RTrader:
+
+
+
+ 
+
+When to Seek Further Assistance
+The Apex Trader Funding help desk is limited in providing further guidance following the steps outlined above. If you have meticulously followed each step and still encounter issues, consider uninstalling and reinstalling both RTrader and NinjaTrader. Additionally, review the step-by-step setup instructions in your members’ area to ensure proper configuration.
+
+Users operating on platforms other than NinjaTrader should contact the respective platform’s support team to inquire about available plugins or additional support options.
+
+Conclusion
+Connection issues with RTrader/Rithmic in NinjaTrader can be resolved by following a systematic troubleshooting approach. By ensuring correct installation, configuration, and regular maintenance of your software and system, you can minimize disruptions and maintain an efficient trading environment. Regularly monitor for lag and address any performance issues promptly to ensure smooth and reliable trading operations.
