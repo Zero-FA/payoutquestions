@@ -5,13 +5,34 @@ const OpenAIImport = require("openai");
 const OpenAI = OpenAIImport.default || OpenAIImport;
 
 const FAQ_LINKS = {
-  "eod-payouts.txt": "",
-  "howto-request.txt": "",
-  "inter-payout-method.txt": "",
-  "intraday-payouts.txt": "",
-  "legacy-payout.txt": "",
-  "payout-method-info.txt": "",
-  "us-payout-method.txt": ""
+  "eod-payouts.txt": {
+    title: "EOD Payouts",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/47205823183003-EOD-Payouts"
+  },
+  "intraday-payouts.txt": {
+    title: "Intraday Trailing Drawdown Payouts",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/47206370796827-Intraday-Trailing-Drawdown-Payouts"
+  },
+  "us-payout-method.txt": {
+    title: "Payout Method — US-Based Users",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/40509699096347-Payout-Method-US-Based-Users"
+  },
+  "inter-payout-method.txt": {
+    title: "Payout Method — International Users",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/40510461359131-Payout-Method-International-Users"
+  },
+  "payout-method-info.txt": {
+    title: "Payout Method Information",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/18960740219931-Payout-Method-Information"
+  },
+  "howto-request.txt": {
+    title: "How to Request a Payout",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/46884326359579-How-to-Request-a-Payout"
+  },
+  "legacy-payout.txt": {
+    title: "Legacy PA Payout Parameters",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/40507212951451-Legacy-PA-Payout-Parameters"
+  }
 };
 
 function loadFaqs() {
@@ -35,7 +56,6 @@ function loadFaqs() {
   for (const file of files) {
     const filePath = path.join(faqDir, file);
     const content = fs.readFileSync(filePath, "utf8");
-
     faqText += `\n\n### FILE: ${file}\n${content}\n`;
   }
 
@@ -91,8 +111,8 @@ I can't answer that from the provided Apex payout FAQs.
 5. Match the tone and style of the user's question.
 6. Keep the answer clear, direct, and helpful.
 7. After the answer, add a final line in exactly this format:
-Source: <file name>
-8. Only name one source file, the best matching one.`,
+SourceFile: <file name>
+8. Only name one source file, the single best matching one.`,
             },
           ],
         },
@@ -115,21 +135,28 @@ Answer using only the FAQ documentation above.`,
       ],
     });
 
-    let answer =
+    let rawAnswer =
       (response.output_text && response.output_text.trim()) ||
       "I can't answer that from the provided Apex payout FAQs.";
 
-    const sourceMatch = answer.match(/Source:\\s*(.+)$/im);
-    let sourceFile = sourceMatch ? sourceMatch[1].trim() : "";
-    let sourceLink = sourceFile && FAQ_LINKS[sourceFile] ? FAQ_LINKS[sourceFile] : "";
+    const sourceMatch = rawAnswer.match(/SourceFile:\s*(.+)$/im);
+    const sourceFile = sourceMatch ? sourceMatch[1].trim() : "";
+    const cleanedAnswer = rawAnswer.replace(/SourceFile:\s*.+$/im, "").trim();
 
-    if (sourceLink) {
-      answer += `\nLink: ${sourceLink}`;
+    const sourceInfo = FAQ_LINKS[sourceFile];
+
+    let finalAnswer = cleanedAnswer;
+
+    if (sourceInfo) {
+      finalAnswer += `\n\nSource: ${sourceInfo.title}`;
+      finalAnswer += `\nLink: ${sourceInfo.url}`;
+    } else if (sourceFile) {
+      finalAnswer += `\n\nSource: ${sourceFile}`;
     }
 
     return res.status(200).json({
       ok: true,
-      answer
+      answer: finalAnswer
     });
   } catch (error) {
     console.error("ASK API ERROR:", error);
