@@ -29,10 +29,6 @@ const FAQ_LINKS = {
     title: "How to Request a Payout",
     url: "https://support.apextraderfunding.com/hc/en-us/articles/46884326359579-How-to-Request-a-Payout"
   },
-  "legacy-payout.txt": {
-    title: "Legacy PA Payout Parameters",
-    url: "https://support.apextraderfunding.com/hc/en-us/articles/40507212951451-Legacy-PA-Payout-Parameters"
-  }
 };
 
 function loadFaqs() {
