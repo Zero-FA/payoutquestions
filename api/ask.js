@@ -307,7 +307,7 @@ module.exports = async function handler(req, res) {
     });
 
     const response = await client.responses.create({
-      model: "gpt-4.1-mini",
+      model: "gpt-5",
       temperature: 0.2,
       input: [
         {
