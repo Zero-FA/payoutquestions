@@ -8,37 +8,61 @@ const OpenAI = OpenAIImport.default || OpenAIImport;
 FAQ support article links
 */
 const FAQ_LINKS = {
-  "eod-payouts.txt": {
-    title: "EOD Payouts",
-    url: "https://support.apextraderfunding.com/hc/en-us/articles/47205823183003-EOD-Payouts"
+  "EOD-Drawdown-Explained.txt": {
+    title: "EOD Drawdown Explained",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/45631563363483-EOD-Drawdown-Explained"
   },
 
-  "intraday-payouts.txt": {
-    title: "Intraday Trailing Drawdown Payouts",
-    url: "https://support.apextraderfunding.com/hc/en-us/articles/47206370796827-Intraday-Trailing-Drawdown-Payouts"
+  "EOD-Evals.txt": {
+    title: "EOD Evaluations",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/46724640813083-EOD-Evaluations"
   },
 
-  "us-payout-method.txt": {
-    title: "Payout Method — US-Based Users",
-    url: "https://support.apextraderfunding.com/hc/en-us/articles/40509699096347-Payout-Method-US-Based-Users"
+  "EOD-Performance-Accounts.txt": {
+    title: "EOD Performance Accounts",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/47204516592795-EOD-Performance-Accounts-PA"
   },
 
-  "inter-payout-method.txt": {
-    title: "Payout Method — International Users",
-    url: "https://support.apextraderfunding.com/hc/en-us/articles/40510461359131-Payout-Method-International-Users"
+  "Intraday-Trailing-Drawdown-Evaluations.txt": {
+    title: "Intraday Trailing Drawdown Evaluations",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/45683414022299-Intraday-Trailing-Drawdown-Evaluations"
   },
 
-  "payout-method-info.txt": {
-    title: "Payout Method Information",
-    url: "https://support.apextraderfunding.com/hc/en-us/articles/18960740219931-Payout-Method-Information"
+  "Intraday-Trailing-Drawdown-Explained.txt": {
+    title: "Intraday Trailing Drawdown Explained",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/45683513113115-Intraday-Trailing-Drawdown-Explained"
   },
 
-  "howto-request.txt": {
-    title: "How to Request a Payout",
-    url: "https://support.apextraderfunding.com/hc/en-us/articles/46884326359579-How-to-Request-a-Payout"
+  "Intraday-Trailing-Drawdown-Performance-Accounts.txt": {
+    title: "Intraday Trailing Drawdown Performance Accounts",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/47206242141979-Intraday-Trailing-Drawdown-Performance-Accounts-PA"
+  },
+
+  "2FA.txt": {
+    title: "Setting Up Two-Factor Authentication (2FA)",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/38540816253723-Setting-Up-Two-Factor-Authentication-2FA"
+  },
+
+  "Dashboard.txt": {
+    title: "Apex Trader Funding Dashboard",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/31519379778459-Apex-Trader-Funding-Dashboard"
+  },
+
+  "Prohibited.txt": {
+    title: "Prohibited Activities",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/40463668243099-Prohibited-Activities"
+  },
+
+  "Registering.txt": {
+    title: "Registering as a Person or Business",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/44603582630683-Registering-as-a-Person-or-Business"
+  },
+
+  "Restricted-Countries.txt": {
+    title: "Restricted Countries",
+    url: "https://support.apextraderfunding.com/hc/en-us/articles/31519369083803-Restricted-Countries"
   }
 };
-
 
 /*
 Recursively load FAQ files from nested folders
