@@ -308,7 +308,6 @@ module.exports = async function handler(req, res) {
 
     const response = await client.responses.create({
       model: "gpt-5",
-      temperature: 0.2,
       input: [
         {
           role: "system",
