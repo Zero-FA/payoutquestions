@@ -1,0 +1,72 @@
+Payment Methods and Possible Checkout Errors
+Important Note
+All purchases must be made using a card that is registered under your own name. Payments made with cards belonging to someone else are not allowed.
+
+Accepted Payment Methods
+Apex Trader Funding supports the following payment options for all transactions:
+
+Credit & Debit Cards
+Visa
+
+Mastercard
+
+Discover
+
+Both credit and debit versions of these cards are accepted, as long as they are issued in your name.
+
+Unsupported Payment Methods
+Gift cards
+
+American Express cards.
+
+Crypto
+
+These forms of payment are not accepted.
+
+Possible Checkout Errors
+Declined or failed payments can happen for a variety of reasons, including bank security measures, incorrect billing details, or retrying the payment too quickly. Below are the most common issues and how to resolve them.
+
+Error 609 — Transaction Blocked by Issuer
+This error usually means that your bank has flagged or blocked the transaction, often for security or fraud-prevention reasons.
+
+What to Do
+Contact your bank or card issuer and ask them to approve or authorize the charge.
+
+Confirm that your card is allowed to process:
+
+Online transactions
+
+International transactions (some banks block these by default)
+
+Billing Information Errors
+Even small mismatches in your billing information can cause payments to fail. Make sure the following details match exactly what appears on your bank statement:
+
+Full name
+
+Billing address
+
+Country
+
+ZIP/Postal code
+
+Card number, expiration date, and CVV
+
+Retrying the Payment
+After your bank confirms everything is authorized, retry the payment from your Apex Dashboard.
+
+If the issue continues after contacting your bank, try updating the payment method with a different card to avoid further delays.
+
+Avoiding Duplicate Payment Errors
+This issue normally appears when:
+
+You attempt the same payment too quickly after a failed attempt.
+
+Multiple retries are submitted within a short period of time.
+
+How to Prevent It:
+
+Wait 2–5 minutes before attempting the payment again.
+
+Refresh your Apex Dashboard before retrying.
+
+Do not click the checkout button multiple times during the same attempt.
