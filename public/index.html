@@ -164,9 +164,15 @@
       align-items: flex-end;
     }
 
-    .bubble-wrap.assistant,
+    .bubble-wrap.assistant {
+      align-items: flex-start;
+    }
+
     .bubble-wrap.source {
       align-items: flex-start;
+      align-self: flex-start;
+      width: auto;
+      max-width: 100%;
     }
 
     .bubble-label {
@@ -204,16 +210,23 @@
     }
 
     .bubble.source {
+      display: inline-block;
       background: var(--panel3);
-      width: fit-content;
-      min-width: 260px;
+      width: auto;
+      max-width: 100%;
+      min-width: 0;
+      padding: 12px 14px;
       border-bottom-left-radius: 6px;
     }
 
     .source-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       color: var(--accent);
       text-decoration: none;
       font-weight: 700;
+      line-height: 1.4;
     }
 
     .source-link:hover {
@@ -233,6 +246,10 @@
       .bubble.assistant,
       .bubble.source {
         max-width: 100%;
+      }
+
+      .bubble-wrap.source {
+        width: 100%;
       }
     }
   </style>
